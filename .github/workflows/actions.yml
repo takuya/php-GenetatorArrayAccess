@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  php8.2-test:
+  php82-test:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
