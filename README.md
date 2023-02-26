@@ -23,7 +23,7 @@ $iter[2]; #=> 'z'
 
 ## Why use.
 
-Generator can foreach itself. but, cannot access as Array. This characteristic  against developers's intention. Like this.
+Generator can foreach itself. but, cannot access as Array. This characteristic is against developers's intention. Like this.
 
 ### Generator cannot be a array. 
 ```php
@@ -46,7 +46,7 @@ $first = $node->elements()[0]; //=> Error
 
 ### CachingIterator is not enough
 
-Using `\CachingIterator` is a common manner, but make a problem
+Using `\CachingIterator` is a common way, but make a problem
 #### \CachingIterator cannot be a array.
 
 This behaviour is very confusing.
@@ -73,7 +73,7 @@ $elements = new \CachingIterator(
 
 If generator is API call, It can spend a lot of time, caching time inevitable.
 
-CachingIterator is no use. EveryOne uses `iterator_to_array()` instead.
+CachingIterator is useless. Everyone uses `iterator_to_array()` instead.
 `iterator_to_array()`function has same problem ( load all, mess up Generator concept, get data when using ).
 
 ### Dynamically get, make Unnecessary api call avoidable.
