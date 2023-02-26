@@ -11,10 +11,14 @@ jobs:
   composer-install-run:
     runs-on: ubuntu-latest
     steps:
+      - name: php version
+        shell: bash
+        run: |
+          php -v 
+          composer about
       - name:
         shell: bash
         run: |
-          php -v
           mkdir -p sample/
           cd sample
           composer require takuya/php-genetator-array-access -q --no-ansi --no-interaction --no-progress
