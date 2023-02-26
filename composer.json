@@ -1,0 +1,35 @@
+{
+  "name": "takuya/php-genetator-array-access",
+  "description": "make yield into an Array / ArrayAccess.",
+  "license": "GPL-3.0-or-later",
+  "version": "1.0",
+  "type": "library",
+  "keywords": [
+    "yield",
+    "ArrayAccess",
+    "Generator",
+    "Iterator",
+    "Dynamically",
+    "CachingIteraror"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Takuya\\Php\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "takuya",
+      "email": "55338+takuya@users.noreply.github.com"
+    }
+  ],
+  "autoload-dev": {
+    "psr-4": {
+      "tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "larapack/dd": "^1.1"
+  }
+}
