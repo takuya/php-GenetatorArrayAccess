@@ -8,6 +8,18 @@ permissions:
   contents: read
 
 jobs:
+  composer-install-run:
+    runs-on: ubuntu-latest
+      steps:
+        - name:
+          shell: bash
+          run: |
+            php -v
+            mkdir -p sample/
+            cd sample
+            composer require takuya/php-genetator-array-access -q --no-ansi --no-interaction --no-progress
+            cp vendor/takuya/php-letencrypt-acme-dns/tests/sample.php .
+            php sample.php
   php82-test:
     runs-on: ubuntu-20.04
     steps:
