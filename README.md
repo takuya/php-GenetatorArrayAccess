@@ -49,13 +49,13 @@ $first = $node->elements()[0]; //=> Error
 Using `\CachingIterator` is a common manner, but make a problem
 #### \CachingIterator cannot be a array.
 
-This null behaviour is very confusing.
+This behaviour is very confusing.
 
 ```php
 $node = new MyClass();
 $elements = new CachingIterator($node->elements())
 // CachingIterator cannot access Directory, before cached.
-$first = $elements[1]; //=> null or BadMethodCallException
+$first = $elements[1]; //=> BadMethodCallException
 // after caching, CachingIterator can access as Array.
 foreach ($elements as $e){;;}
 $first = $elements[1]; //=> not null.
@@ -71,7 +71,7 @@ $elements = new \CachingIterator(
 );// <= All Cached in NEW.
 ```
 
-If generator is API call , It can spend a lot of time. so login caching time inevitable.
+If generator is API call, It can spend a lot of time, caching time inevitable.
 
 `iterator_to_array()` function has same problem.
 
@@ -95,6 +95,45 @@ foreach($iter as $e){;;}
 // cache access with rewind.
 foreach($iter as $e){;;}
 ```
+
+## When use this.
+Reduce WebAPI Call. without re-arrange code.
+
+Current exists code.
+```php
+function my_list_items(){
+  foreach(  $api->call('list_item') as $id){
+    $list[]=$api->call('get_item', $id);
+  }
+  return $list;
+}
+$items = $my_list_items();
+$item = $items[0];
+```
+Use Generator.
+```php
+function my_list_items(){
+  foreach(  $api->call('list_item') as $id){
+    $item  = $api->call('get_item', $id);
+    yield $item;
+  }
+}
+$items = $my_list_items();
+$item = $items[0];//<= No Code changed. Becomes ERORR!. 
+```
+Use GeneratorArrayAccess
+```php
+function my_list_items(){
+  foreach(  $api->call('list_item') as $id){
+    $item  = $api->call('get_item', $id);
+    yield $item;
+  }
+}
+$items = new GeneratorArrayAccess($my_list_items());
+$item = $items[0];//<= No Code changed. no error.
+```
+
+This class supports to make use of Generator(yield), with less code changed.
 
 ### Limitations.
 
