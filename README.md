@@ -120,7 +120,10 @@ vcs https://github.com/takuya/$repository
 composer require takuya/$repository:master
 composer install
 ```
-
+from composer 
+```shell
+composer require takuya/php-genetator-array-access
+```
 
 
 
