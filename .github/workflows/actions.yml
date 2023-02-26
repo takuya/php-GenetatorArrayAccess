@@ -12,12 +12,16 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-      - name: Validate composer.json and composer.lock
-        run: composer validate --strict
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
+      - name: Show PHP version
+        shell: bash
+        run: php -v
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress -q
       - name: Run test suite
