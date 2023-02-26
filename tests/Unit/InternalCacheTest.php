@@ -26,6 +26,9 @@ class InternalCacheTest extends TestCase {
     $this->assertEquals(['a','b','c'],$this->getPrivateValue($iter,'cache') );
   }
   protected function getPrivateValue($object,$propName){
-    return  (new \ReflectionClass($object))->getProperty($propName)->getValue($object);
+    $ref = new \ReflectionClass($object);
+    $p = $ref->getProperty($propName);
+    $p->setAccessible(true);
+    return $p->getValue($object);
   }
 }
