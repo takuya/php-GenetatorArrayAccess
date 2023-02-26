@@ -6,9 +6,7 @@ Make generator(yield) into ArrayAccess.
 ```php
 <?php
 // generators ( yield ).
-$generator = (function(){
-  foreach (['x'.'y','z'] as $e){ yield $e;}
-})();
+$generator = (function(){foreach (['x'.'y','z'] as $e){ yield $e;}})();
 // Using with new.
 use Takuya\Php\GeneratorArrayAccess;
 $iter = new GeneratorArrayAccess($generator);
