@@ -130,7 +130,7 @@ function my_list_items(){
   }
 }
 $items = new GeneratorArrayAccess($my_list_items());
-$item = $items[0];//<= No Code changed. no error.
+$item = $items[0];//<= No Code changed. **No Error**.
 ```
 
 This class supports to make use of Generator(yield), with less code changed.
