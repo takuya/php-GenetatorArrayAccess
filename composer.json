@@ -16,6 +16,9 @@
       "Takuya\\Php\\": "src/"
     }
   },
+  "scripts": {
+    "test":  "php vendor/bin/phpunit"
+  },
   "authors": [
     {
       "name": "takuya",
