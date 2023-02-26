@@ -68,12 +68,13 @@ $node = new MyClass();
 $elements = new \CachingIterator(
   $node->elements(),
   \CachingIterator::FULL_CACHE
-);// <= All Cached in NEW.
+);// <= All Cached on constructor.
 ```
 
 If generator is API call, It can spend a lot of time, caching time inevitable.
 
-`iterator_to_array()` function has same problem.
+CachingIterator is no use. EveryOne uses `iterator_to_array()` instead.
+`iterator_to_array()`function has same problem ( load all, mess up Generator, get data when using ).
 
 ### Dynamically get, make Unnecessary api call avoidable.
 
