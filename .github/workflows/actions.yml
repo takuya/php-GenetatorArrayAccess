@@ -16,7 +16,7 @@ jobs:
         run: |
           php -v 
           composer about
-      - name:
+      - name: install from composer
         shell: bash
         run: |
           mkdir -p sample/
