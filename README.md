@@ -1,4 +1,8 @@
+![](https://github.com/takuya/php-generators-into-array-access/workflows/main/badge.svg)
+
+
 # php / GeneratorArrayAccess
+
 Make generator(yield) into ArrayAccess.
 
 ## Example
