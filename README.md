@@ -74,7 +74,7 @@ $elements = new \CachingIterator(
 If generator is API call, It can spend a lot of time, caching time inevitable.
 
 CachingIterator is no use. EveryOne uses `iterator_to_array()` instead.
-`iterator_to_array()`function has same problem ( load all, mess up Generator, get data when using ).
+`iterator_to_array()`function has same problem ( load all, mess up Generator concept, get data when using ).
 
 ### Dynamically get, make Unnecessary api call avoidable.
 
