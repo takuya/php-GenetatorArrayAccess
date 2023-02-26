@@ -25,7 +25,7 @@ $iter[2]; #=> 'z'
 
 Generator can foreach itself. but, cannot access as Array. This characteristic  against developers's intention. Like this.
 
-### Generator cannot as a array. 
+### Generator cannot be a array. 
 ```php
 class MyClass{
   public function elements(){
@@ -97,6 +97,7 @@ foreach($iter as $e){;;}
 ```
 
 ## When use this.
+
 Reduce WebAPI Call. without re-arrange code.
 
 Current exists code.
