@@ -124,16 +124,18 @@ $item = $items[0];//<= No Code changed. Becomes ERORR!.
 Use GeneratorArrayAccess
 ```php
 function my_list_items(){
+  return new GeneratorArrayAccess((function(){
   foreach(  $api->call('list_item') as $id){
     $item  = $api->call('get_item', $id);
     yield $item;
-  }
+  }  
+  })());
 }
-$items = new GeneratorArrayAccess($my_list_items());
+$items = $my_list_items();
 $item = $items[0];//<= No Code changed. **No Error**.
 ```
 
-This class supports to make use of Generator(yield), with less code changed.
+This class supports to make use of Generator(yield), Less code changed.
 
 ### Limitations.
 
