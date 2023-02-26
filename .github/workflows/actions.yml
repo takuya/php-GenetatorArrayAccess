@@ -26,3 +26,39 @@ jobs:
         run: composer install --prefer-dist --no-progress -q
       - name: Run test suite
         run: composer run-script test
+  php81-test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+      - name: Show PHP version
+        shell: bash
+        run: php -v
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress -q
+      - name: Run test suite
+        run: composer run-script test
+  php74-test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+      - name: Show PHP version
+        shell: bash
+        run: php -v
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress -q
+      - name: Run test suite
+        run: composer run-script test
