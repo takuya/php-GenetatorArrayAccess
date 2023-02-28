@@ -9,7 +9,7 @@ Make generator(yield) into ArrayAccess.
 
 ```php
 <?php
-// generators ( yield ).
+// generators by yield.
 $generator = (function(){foreach (['x'.'y','z'] as $e){ yield $e;}})();
 // Using with new.
 use Takuya\Php\GeneratorArrayAccess;
